@@ -1,19 +1,18 @@
-#ifndef _MY_COMPLEX_H_
-#define _MY_COMPLEX_H_
+#ifndef MY_COMPLEX_H_INCLUDED
+#define MY_COMPLEX_H_INCLUDED
 #include <iostream>
-using namespace std;
 class Complex {
-    double Re;
-    double Im;
+    double re_;
+    double im_;
 public:
     Complex(double aRe = 0, double aIm = 0);
     Complex(const Complex&);
     ~Complex();
-    void Set(double aRe, double aIm = 0);
+    void set(double aRe, double aIm = 0);
     operator double();
     double abs();
-    friend istream& operator>>(istream&, Complex&);
-    friend ostream& operator<<(ostream&, Complex&);
+    friend std::istream& operator>>(std::istream&, Complex&);
+    friend std::ostream& operator<<(std::ostream&, Complex&);
     Complex operator+(const Complex&);
     Complex operator-(const Complex&);
     Complex operator+(const double&);
