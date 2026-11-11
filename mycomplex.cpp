@@ -4,21 +4,19 @@
 #include "mycomplex.h"
 using namespace std;
 
-Complex::Complex(double aRe, double aIm) : re_(aRe), im_(aIm) {
+Complex::Complex(double a_re, double a_im) : re_(a_re), im_(a_im) {
 }
 
-Complex::Complex(const Complex& aRval)
-    : re_(aRval.re_), im_(aRval.im_) {
+Complex::Complex(const Complex& a_rval)
+    : re_(a_rval.re_), im_(a_rval.im_) {
 }
 
 Complex::~Complex() {
-    re_ = 0.0;
-    im_ = 0.0;
 }
 
-void Complex::set(double aRe, double aIm) {
-    re_ = aRe;
-    im_ = aIm;
+void Complex::set(double a_re, double a_im) {
+    re_ = a_re;
+    im_ = a_im;
 }
 
 Complex::operator double() const {
@@ -29,103 +27,103 @@ double Complex::abs() const {
     return sqrt(re_ * re_ + im_ * im_);
 }
 
-Complex Complex::operator+(const Complex& aRval) const {
-    Complex Result;
-    Result.re_ = re_ + aRval.re_;
-    Result.im_ = im_ + aRval.im_;
-    return Result;
-}
-
-Complex Complex::operator-(const Complex& aRval) const {
-    Complex Result;
-    Result.re_ = re_ - aRval.re_;
-    Result.im_ = im_ - aRval.im_;
-    return Result;
-}
-
-Complex Complex::operator+(const double& aval) const {
+Complex Complex::operator+(const Complex& a_rval) const {
     Complex result;
-    result.re_ = re_ + aval;
+    result.re_ = re_ + a_rval.re_;
+    result.im_ = im_ + a_rval.im_;
+    return result;
+}
+
+Complex Complex::operator-(const Complex& a_rval) const {
+    Complex result;
+    result.re_ = re_ - a_rval.re_;
+    result.im_ = im_ - a_rval.im_;
+    return result;
+}
+
+Complex Complex::operator+(const double& a_val) const {
+    Complex result;
+    result.re_ = re_ + a_val;
     result.im_ = im_;
     return result;
 }
 
-Complex Complex::operator-(const double& aRval) const {
-    Complex Result(*this);
-    Result.re_ = re_ - aRval;
-    return Result;
+Complex Complex::operator-(const double& a_rval) const {
+    Complex result(*this);
+    result.re_ = re_ - a_rval;
+    return result;
 }
 
-Complex Complex::operator*(const Complex& aRval) const {
-    Complex Result;
-    Result.re_ = re_ * aRval.re_ - im_ * aRval.im_;
-    Result.im_ = re_ * aRval.im_ + im_ * aRval.re_;
-    return Result;
+Complex Complex::operator*(const Complex& a_rval) const {
+    Complex result;
+    result.re_ = re_ * a_rval.re_ - im_ * a_rval.im_;
+    result.im_ = re_ * a_rval.im_ + im_ * a_rval.re_;
+    return result;
 }
 
-Complex Complex::operator*(const double& aRval) const {
-    Complex Result;
-    Result.re_ = re_ * aRval;
-    Result.im_ = im_ * aRval;
-    return Result;
+Complex Complex::operator*(const double& a_rval) const {
+    Complex result;
+    result.re_ = re_ * a_rval;
+    result.im_ = im_ * a_rval;
+    return result;
 }
 
-Complex Complex::operator/(const double& aRval) const {
-    Complex Result;
-    Result.re_ = re_ / aRval;
-    Result.im_ = im_ / aRval;
-    return Result;
+Complex Complex::operator/(const double& a_rval) const {
+    Complex result;
+    result.re_ = re_ / a_rval;
+    result.im_ = im_ / a_rval;
+    return result;
 }
 
-Complex& Complex::operator+=(const Complex& aRval) {
-    re_ += aRval.re_;
-    im_ += aRval.im_;
+Complex& Complex::operator+=(const Complex& a_rval) {
+    re_ += a_rval.re_;
+    im_ += a_rval.im_;
     return *this;
 }
 
-Complex& Complex::operator-=(const Complex& aRval) {
-    re_ -= aRval.re_;
-    im_ -= aRval.im_;
+Complex& Complex::operator-=(const Complex& a_rval) {
+    re_ -= a_rval.re_;
+    im_ -= a_rval.im_;
     return *this;
 }
 
-Complex& Complex::operator*=(const Complex& aRval) {
-    double tmpRe = re_;
-    re_ = re_ * aRval.re_ - im_ * aRval.im_;
-    im_ = im_ * aRval.re_ + tmpRe * aRval.im_;
+Complex& Complex::operator*=(const Complex& a_rval) {
+    double tmp_re = re_;
+    re_ = re_ * a_rval.re_ - im_ * a_rval.im_;
+    im_ = im_ * a_rval.re_ + tmp_re * a_rval.im_;
     return *this;
 }
 
-Complex& Complex::operator+=(const double& aRval) {
-    re_ += aRval;
+Complex& Complex::operator+=(const double& a_rval) {
+    re_ += a_rval;
     return *this;
 }
 
-Complex& Complex::operator-=(const double& aRval) {
-    re_ -= aRval;
+Complex& Complex::operator-=(const double& a_rval) {
+    re_ -= a_rval;
     return *this;
 }
 
-Complex& Complex::operator*=(const double& aRval) {
-    re_ *= aRval;
-    im_ *= aRval;
+Complex& Complex::operator*=(const double& a_rval) {
+    re_ *= a_rval;
+    im_ *= a_rval;
     return *this;
 }
 
-Complex& Complex::operator/=(const double& aRval) {
-    re_ /= aRval;
-    im_ /= aRval;
+Complex& Complex::operator/=(const double& a_rval) {
+    re_ /= a_rval;
+    im_ /= a_rval;
     return *this;
 }
 
-Complex& Complex::operator=(const Complex& aRval) {
-    re_ = aRval.re_;
-    im_ = aRval.im_;
+Complex& Complex::operator=(const Complex& a_rval) {
+    re_ = a_rval.re_;
+    im_ = a_rval.im_;
     return *this;
 }
 
-Complex& Complex::operator=(const double& aRval) {
-    re_ = aRval;
+Complex& Complex::operator=(const double& a_rval) {
+    re_ = a_rval;
     im_ = 0.0;
     return *this;
 }
@@ -145,23 +143,23 @@ ostream& operator<<(ostream& stream, const Complex& a) {
     return stream;
 }
 
-Complex operator+(const double& aLval, const Complex& aRval) {
-    Complex Result;
-    Result.re_ = aLval + aRval.re_;
-    Result.im_ = aRval.im_;
-    return Result;
+Complex operator+(const double& a_lval, const Complex& a_rval) {
+    Complex result;
+    result.re_ = a_lval + a_rval.re_;
+    result.im_ = a_rval.im_;
+    return result;
 }
 
-Complex operator-(const double& aLval, const Complex& aRval) {
-    Complex Result;
-    Result.re_ = aLval - aRval.re_;
-    Result.im_ = -aRval.im_;
-    return Result;
+Complex operator-(const double& a_lval, const Complex& a_rval) {
+    Complex result;
+    result.re_ = a_lval - a_rval.re_;
+    result.im_ = -a_rval.im_;
+    return result;
 }
 
-Complex operator*(const double& aLval, const Complex& a) {
+Complex operator*(const double& a_lval, const Complex& a) {
     Complex r;
-    r.re_ = aLval * a.re_;
-    r.im_ = aLval * a.im_;
+    r.re_ = a_lval * a.re_;
+    r.im_ = a_lval * a.im_;
     return r;
 }
